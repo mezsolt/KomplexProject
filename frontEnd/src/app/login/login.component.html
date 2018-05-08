@@ -1,0 +1,25 @@
+<div id="container">
+  <br>
+  <button (click)="logOut()">Logout</button>
+  <button (click)="navigateToSalaryData()">Fizetés</button>
+  <button (click)="navigateToClientData()">Kliens</button>
+  <button (click)="navigateToUserData()">Felhasználó</button>
+  <button (click)="navigateToDeletedData()">Törölt adat</button>
+  <button (click)="navigateToVerifyingCodeData()">Ellenőrző kód</button>
+  <br>
+  <br>
+  <br>
+<form #userForm="ngForm" (ngSubmit)="login(userForm.value)">
+  <div>
+    <label>Felhasználónév:</label>
+    <input type="text" name="username" autocomplete="off" ngModel>
+  </div>
+  <div>
+    <label>Jelszó:</label>
+    <input type="password" name="password" ngModel>
+  </div>
+  <br>
+  <button type="submit">Login</button>
+  <button (click)="logOut()">Logout</button>
+</form>
+</div>

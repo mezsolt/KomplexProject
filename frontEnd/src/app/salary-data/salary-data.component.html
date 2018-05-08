@@ -1,0 +1,142 @@
+<div id="container">
+  <br>
+  <button (click)="logOut()">Logout</button>
+  <button (click)="navigateToSalaryData()">Fizetés</button>
+  <button (click)="navigateToClientData()">Kliens</button>
+  <button (click)="navigateToUserData()">Felhasználó</button>
+  <button (click)="navigateToDeletedData()">Törölt adat</button>
+  <button (click)="navigateToVerifyingCodeData()">Ellenőrző kód</button>
+  <br>
+  <br>
+  <p>Keresés:</p>
+<form #salarySearchForm="ngForm" (ngSubmit)="sendSearchRequest(salarySearchForm)">
+  <div>
+    <label>Neme:</label>
+    <select name="gender" ngModel>
+      <option  value="Összes">Összes</option>
+      <option  value="Férfi">Férfi</option>
+      <option  value="Nő">Nő</option>
+    </select>
+  </div>
+  <div>
+    <label>Életkora:</label>
+    <select name="age" ngModel>
+      <option  value="Összes">Összes</option>
+      <option *ngFor="let age of ages" value={{age}}>{{age}}</option>
+    </select>
+  </div>
+  <div>
+    <label>Hány idegen nyelven beszél:</label>
+    <select name="foreignLanguages" ngModel>
+      <option  value="Összes">Összes</option>
+      <option *ngFor="let languages of foreignLanguages" value={{languages}}>{{languages}}</option>
+    </select>
+  </div>
+  <div>
+    <label>Pozíció:</label>
+    <select name="position" ngModel>
+      <option  value="Összes">Összes</option>
+      <option *ngFor="let position of workPositions" value={{position}}>{{position}}</option>
+    </select>
+  </div>
+  <div>
+    <label>Tapasztalata:</label>
+    <select name="experience" ngModel>
+      <option  value="Összes">Összes</option>
+      <option *ngFor="let experience of workExperiences" value={{experience}}>{{experience}}</option>
+    </select>
+  </div>
+  <div>
+    <label>Munkavégzés helye:</label>
+    <select name="placeOfWork" ngModel>
+      <option  value="Összes">Összes</option>
+      <option *ngFor="let placeOfWork of placeOfWorks" value={{placeOfWork}}>{{placeOfWork}}</option>
+    </select>
+  </div>
+  <div>
+    <label>Legmagasabb iskolai végzettsége:</label>
+    <select name="educationAttained" ngModel>
+      <option  value="Összes">Összes</option>
+      <option *ngFor="let education of educations" value={{education}}>{{education}}</option>
+    </select>
+  </div>
+  <br>
+  <button type="submit">Keresés</button>
+  <button type="button" (click)="clearForm(salarySearchForm)">Adatok törlése</button>
+</form>
+<br>
+<p>Keresett fizetések: </p>
+<ul class="salary">
+  <li *ngFor="let salary of searchedSalaryForms">
+    {{salary.gender}} {{salary.age}} {{salary.foreignLanguages}} {{salary.position}} {{salary.experience}}
+    {{salary.placeOfWork}} {{salary.educationAttained}} {{salary.salary}}
+  </li>
+</ul>
+<br>
+<p>Fizetések törlése:</p>
+<form #salaryDeleteForm="ngForm" (ngSubmit)="deleteSalary(salaryDeleteForm)">
+  <div>
+    <label>Neme:</label>
+    <select name="gender" ngModel>
+      <option  value="Összes">Összes</option>
+      <option  value="Férfi">Férfi</option>
+      <option  value="Nő">Nő</option>
+    </select>
+  </div>
+  <div>
+    <label>Életkora:</label>
+    <select name="age" ngModel>
+      <option  value="Összes">Összes</option>
+      <option *ngFor="let age of ages" value={{age}}>{{age}}</option>
+    </select>
+  </div>
+  <div>
+    <label>Hány idegen nyelven beszél:</label>
+    <select name="foreignLanguages" ngModel>
+      <option  value="Összes">Összes</option>
+      <option *ngFor="let languages of foreignLanguages" value={{languages}}>{{languages}}</option>
+    </select>
+  </div>
+  <div>
+    <label>Pozíció:</label>
+    <select name="position" ngModel>
+      <option  value="Összes">Összes</option>
+      <option *ngFor="let position of workPositions" value={{position}}>{{position}}</option>
+    </select>
+  </div>
+  <div>
+    <label>Tapasztalata:</label>
+    <select name="experience" ngModel>
+      <option  value="Összes">Összes</option>
+      <option *ngFor="let experience of workExperiences" value={{experience}}>{{experience}}</option>
+    </select>
+  </div>
+  <div>
+    <label>Munkavégzés helye:</label>
+    <select name="placeOfWork" ngModel>
+      <option  value="Összes">Összes</option>
+      <option *ngFor="let placeOfWork of placeOfWorks" value={{placeOfWork}}>{{placeOfWork}}</option>
+    </select>
+  </div>
+  <div>
+    <label>Legmagasabb iskolai végzettsége:</label>
+    <select name="educationAttained" ngModel>
+      <option  value="Összes">Összes</option>
+      <option *ngFor="let education of educations" value={{education}}>{{education}}</option>
+    </select>
+  </div>
+  <br>
+  <button type="submit">Törlés</button>
+  <button type="button" (click)="clearForm(salaryDeleteForm)">Adatok törlése</button>
+</form>
+  <br>
+  <button (click)="getSalaries()">Fizetések listázása</button>
+  <br>
+  <ul class="salary">
+    <li *ngFor="let salary of salaries">
+      <span class="badge">{{salary.id}}</span> {{salary.gender}} {{salary.age}} {{salary.foreignLanguages}} {{salary.position}} {{salary.experience}}
+      {{salary.placeOfWork}} {{salary.educationAttained}} {{salary.salary}}
+    </li>
+  </ul>
+  <br>
+</div>

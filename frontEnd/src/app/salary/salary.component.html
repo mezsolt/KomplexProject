@@ -1,0 +1,72 @@
+<div id="container">
+  <br>
+<div style="text-align:center">
+</div>
+<br>
+<h2>Adja meg fizetését:</h2>
+<form  #salaryForm="ngForm" (ngSubmit)="sendSalary(salaryForm)">
+  <div>
+    <label>Neme:</label>
+    <select name="gender" ngModel>
+      <option  value="Férfi">Férfi</option>
+      <option  value="Nő">Nő</option>
+    </select>
+  </div>
+  <div>
+    <label>Életkora:</label>
+    <select name="age" ngModel>
+      <option *ngFor="let age of ages" value={{age}}>{{age}}</option>
+    </select>
+  </div>
+  <div>
+    <label>Hány idegen nyelven beszél:</label>
+    <select name="foreignLanguages" ngModel>
+      <option *ngFor="let languages of foreignLanguages" value={{languages}}>{{languages}}</option>
+    </select>
+  </div>
+    <div>
+  <label>Pozíció:</label>
+      <select name="position" ngModel>
+        <option *ngFor="let position of workPositions" value={{position}}>{{position}}</option>
+      </select>
+</div>
+  <div>
+    <label>Tapasztalata:</label>
+    <select name="experience" ngModel>
+      <option *ngFor="let experience of workExperiences" value={{experience}}>{{experience}}</option>
+    </select>
+  </div>
+  <div>
+    <label>Munkavégzés helye:</label>
+    <select name="placeOfWork" ngModel>
+      <option *ngFor="let placeOfWork of placeOfWorks" value={{placeOfWork}}>{{placeOfWork}}</option>
+    </select>
+  </div>
+  <div>
+    <label>Legmagasabb iskolai végzettsége:</label>
+    <select name="educationAttained" ngModel>
+      <option *ngFor="let education of educations" value={{education}}>{{education}}</option>
+    </select>
+  </div>
+  <div>
+    <label>Fizetése:</label>
+    <input type="number" name="salary" min="100000" max ="1000000" autocomplete="off" ngModel> HUF
+  </div>
+  <div>
+    <label>Szeretne-e egy kitöltés igazoló kódot kapni:</label>
+    <select name="wantVerifyFormCode" ngModel>
+      <option  value="Igen">Igen</option>
+      <option  value="Nem">Nem</option>
+    </select>
+  </div>
+  <br>
+  <button type="submit">Küldés</button>
+  <button type="button" (click)="clearForm(salaryForm)" >Adatok törlése</button>
+</form>
+  <br>
+<p id="cantSend" [hidden]="ipBlocked != true">Még nem küldhet újra! Kérjük várjon 2 percet két küldés között!</p>
+<p id="verifyCodeValue" [hidden]="userWantVerifyingCode != true">Az Ön igazoló kódja: {{verifyingCode}}</p>
+<p id="warningMessageFillEverything" [hidden]="warningFillEverything != true">Kérjük töltse ki az összes mezőt!</p>
+<p id="warningMessageWrongSalary" [hidden]="warningWrongSalary != true">Helytelen fizetés!</p>
+</div>
+

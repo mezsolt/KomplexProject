@@ -1,0 +1,20 @@
+<div id="container">
+  <br>
+  <button (click)="logOut()">Logout</button>
+  <button (click)="navigateToSalaryData()">Fizetés</button>
+  <button (click)="navigateToClientData()">Kliens</button>
+  <button (click)="navigateToUserData()">Felhasználó</button>
+  <button (click)="navigateToDeletedData()">Törölt adat</button>
+  <button (click)="navigateToVerifyingCodeData()">Ellenőrző kód</button>
+  <br>
+  <br>
+  <br>
+  <button (click)="getCodes()">Kódok listázása:</button>
+  <br>
+  <p>Kódok:</p>
+<ul class="code">
+  <li *ngFor="let code of codes">
+    <span class="badge">{{code.id}}</span> {{code.verifyingCode}}
+  </li>
+</ul>
+</div>

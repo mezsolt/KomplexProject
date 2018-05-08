@@ -1,0 +1,17 @@
+<div id="container">
+  <br>
+  <br>
+  <h2>Ellenőrizze, hogy részt vett e már a felmérésben:</h2>
+<form #verifyingCodeForm="ngForm" (ngSubmit)="checkVerifyingCode(verifyingCodeForm)">
+  <div>
+    <label>Kód:</label>
+    <input type="text" name="verifyingCode" autocomplete="off" ngModel>
+  </div>
+  <br>
+  <button type="submit">Ellenőrzés</button>
+  <button type="button" (click)="clearVerifyingCodeForm(verifyingCodeForm)" >Adatok törlése</button>
+</form>
+<p [hidden]="codeNotTypedIn == false">Kérjük adja meg a kódot!</p>
+<br>
+<p>{{verifyingCodeExistMessage}}</p>
+</div>

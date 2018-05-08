@@ -1,0 +1,35 @@
+<div id="container">
+  <br>
+  <button (click)="logOut()">Logout</button>
+  <button (click)="navigateToSalaryData()">Fizetés</button>
+  <button (click)="navigateToClientData()">Kliens</button>
+  <button (click)="navigateToUserData()">Felhasználó</button>
+  <button (click)="navigateToDeletedData()">Törölt adat</button>
+  <button (click)="navigateToVerifyingCodeData()">Ellenőrző kód</button>
+  <br>
+<br>
+<p>Kliensek törlése:</p>
+<form #clientDeleteForm="ngForm" (ngSubmit)="deleteClient(clientDeleteForm)">
+  <div>
+    <label>IP:</label>
+    <input type="text" name="ip" ngModel>
+    <label>Dátum:</label>
+    <input type="text" name="date" ngModel>
+  </div>
+  <br>
+  <button type="submit">Törlés</button>
+  <button type="button" (click)="clearForm(clientDeleteForm)" >Adatok törlése</button>
+</form>
+  <br>
+  <button (click)="getClients()">Kliensek listázása</button>
+  <br>
+  <p>Kliensek:</p>
+  <ul class="client">
+    <li *ngFor="let client of clients">
+      {{client.ip}} {{client.sendDate}}
+    </li>
+  </ul>
+  <br>
+
+</div>
+

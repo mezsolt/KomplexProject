@@ -1,0 +1,20 @@
+<div id="container">
+  <br>
+  <button (click)="logOut()">Logout</button>
+  <button (click)="navigateToSalaryData()">Fizetés</button>
+  <button (click)="navigateToClientData()">Kliens</button>
+  <button (click)="navigateToUserData()">Felhasználó</button>
+  <button (click)="navigateToDeletedData()">Törölt adat</button>
+  <button (click)="navigateToVerifyingCodeData()">Ellenőrző kód</button>
+  <br>
+<br>
+  <br>
+  <button (click)="getDeletedDatas()">Törölt adatok listázása</button>
+  <br>
+  <p>Törölt adatok:</p>
+<ul class="deleteddata">
+  <li *ngFor="let deleteddata of deletedDatas">
+    <span class="badge">{{deleteddata.id}}</span> {{deleteddata.username}} {{deleteddata.data}} {{deleteddata.deletionDate}}
+  </li>
+</ul>
+</div>
