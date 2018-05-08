@@ -107,7 +107,7 @@ public class SalaryFormServiceImpl implements SalaryFormService{
     }
 
     public ArrayList<String> getListFromFile(String fileName) throws IOException {
-        File file = new File("C:\\Users\\User\\Desktop\\KomplexSalaryProject\\trunk\\dao\\src\\main\\resources\\" + fileName);
+        File file = new File("C:\\Users\\User\\IdeaProjects\\KomplexProject\\dao\\src\\main\\resources\\" + fileName);
         BufferedReader br = new BufferedReader(new FileReader(file));
 
         ArrayList<String> list = new ArrayList<>();

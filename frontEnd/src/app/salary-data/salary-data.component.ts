@@ -69,13 +69,13 @@ export class SalaryDataComponent implements OnInit {
   validateSearchForm(salarySearchForm: SalarySearchRequest) : boolean {
     let error: boolean = false;
 
-    if(salarySearchForm.gender == '' ||
-      salarySearchForm.age == '' ||
-      salarySearchForm.foreignLanguages == '' ||
-      salarySearchForm.position == '' ||
-      salarySearchForm.experience == '' ||
-      salarySearchForm.placeOfWork == '' ||
-      salarySearchForm.educationAttained == ''
+    if(salarySearchForm.gender == '' || salarySearchForm.gender == null ||
+      salarySearchForm.age == '' || salarySearchForm.age == null ||
+      salarySearchForm.foreignLanguages == '' || salarySearchForm.foreignLanguages == null ||
+      salarySearchForm.position == '' || salarySearchForm.position == null ||
+      salarySearchForm.experience == '' || salarySearchForm.experience == null ||
+      salarySearchForm.placeOfWork == '' || salarySearchForm.placeOfWork == null ||
+      salarySearchForm.educationAttained == '' || salarySearchForm.educationAttained == null
     ) {
       error = true;
     }

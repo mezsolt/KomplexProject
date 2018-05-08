@@ -93,16 +93,14 @@ export class SalaryComponent implements OnInit {
   validateForm(salaryForm: Salary,wantVerifyFormCode: string) : boolean {
     let error : boolean = false;
 
-    if(salaryForm.gender == '' ||
-      salaryForm.age == '' ||
-      salaryForm.foreignLanguages == '' ||
-      salaryForm.position == '' ||
-      salaryForm.experience == '' ||
-      salaryForm.placeOfWork == '' ||
-      salaryForm.educationAttained == '' ||
-      salaryForm.salary == null ||
-      wantVerifyFormCode == ''
-    ) {
+    if(salaryForm.gender == '' || salaryForm.gender == null ||
+      salaryForm.age == '' || salaryForm.age == null ||
+      salaryForm.foreignLanguages == '' || salaryForm.foreignLanguages == null ||
+      salaryForm.position == '' || salaryForm.position == null ||
+      salaryForm.experience == '' || salaryForm.experience == null ||
+      salaryForm.placeOfWork == '' || salaryForm.placeOfWork == null ||
+      salaryForm.educationAttained == '' || salaryForm.educationAttained == null ||
+      salaryForm.salary == null) {
       this.warningFillEverything = true;
       error = true;
     }
